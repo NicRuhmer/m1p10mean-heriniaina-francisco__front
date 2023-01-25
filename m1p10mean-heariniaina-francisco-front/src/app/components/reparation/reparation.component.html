@@ -73,7 +73,7 @@
                                         <i class="fas fa-file-invoice" title="factures"></i>
                                     </td>
                                     <td>
-                                        <i class="fas fa-spinner" title="état d'avancement"></i>
+                                        <i class="fas fa-tasks" title="état d'avancement"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -98,7 +98,7 @@
                                         <i class="fas fa-file-invoice" title="factures"></i>
                                     </td>
                                     <td>
-                                        <i class="fas fa-spinner" title="état d'avancement"></i>
+                                        <i class="fas fa-tasks" title="état d'avancement"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -123,7 +123,7 @@
                                         <i class="fas fa-file-invoice" title="factures"></i>
                                     </td>
                                     <td>
-                                        <i class="fas fa-spinner" title="état d'avancement"></i>
+                                        <i class="fas fa-tasks" title="état d'avancement"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -144,7 +144,7 @@
                                         <div class="relative pt-1">
                                             30%
                                             <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-pink-200">
-                                                <div style="width: 30%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"></div>
+                                                <div style={{width: "30%"}} class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500"></div>
                                             </div>
                                         </div>
                                     </td>
@@ -152,7 +152,7 @@
                                         <i class="fas fa-file-invoice" title="factures"></i>
                                     </td>
                                     <td>
-                                        <i class="fas fa-spinner" title="état d'avancement"></i>
+                                        <i class="fas fa-tasks" title="état d'avancement"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -177,7 +177,7 @@
                                         <i class="fas fa-file-invoice" title="factures"></i>
                                     </td>
                                     <td>
-                                        <i class="fas fa-spinner" title="état d'avancement"></i>
+                                        <i class="fas fa-tasks" title="état d'avancement"></i>
                                     </td>
                                 </tr>
                             </tbody>
@@ -222,6 +222,10 @@
                                     </th>
                                     <th
                                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Statut
+                                    </th>
+                                    <th
+                                        class="px-6 bg-blueGray-50 text-center text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         Actions
                                     </th>
                                 </tr>
@@ -240,13 +244,17 @@
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         21/12/2022
                                     </td>
-
-                                    <td>
-                                        <button
+                                    <td
+                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        <span class="bg-red-500 text-white rounded px-3 py-1">Non récupérer</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <!-- <button
                                             class="bg-green-600 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
                                             type="button" style="transition:all .15s ease">
                                             Détails
-                                        </button>
+                                        </button> -->
+                                        <i class="fas fa-history" title="Historiques"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -262,12 +270,17 @@
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         21/12/2022
                                     </td>
-                                    <td>
-                                        <button
+                                    <td
+                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        Non récupérer
+                                    </td>
+                                    <td class="text-center">
+                                        <!-- <button
                                             class="bg-green-600 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
                                             type="button" style="transition:all .15s ease">
                                             Détails
-                                        </button>
+                                        </button> -->
+                                        <i class="fas fa-history" title="historiques"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -283,12 +296,17 @@
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         21/12/2022
                                     </td>
-                                    <td>
-                                        <button
+                                    <td
+                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        Non récupérer
+                                    </td>
+                                    <td class="text-center">
+                                        <!-- <button
                                             class="bg-green-600 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
                                             type="button" style="transition:all .15s ease">
                                             Détails
-                                        </button>
+                                        </button> -->
+                                        <i class="fas fa-history" title="historiques"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -304,12 +322,17 @@
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         21/12/2022
                                     </td>
-                                    <td>
-                                        <button
+                                    <td
+                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        Non récupérer
+                                    </td>
+                                    <td class="text-center">
+                                        <!-- <button
                                             class="bg-green-600 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
                                             type="button" style="transition:all .15s ease">
                                             Détails
-                                        </button>
+                                        </button> -->
+                                        <i class="fas fa-history" title="historiques"></i>
                                     </td>
                                 </tr>
                                 <tr>
@@ -325,12 +348,17 @@
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         21/12/2022
                                     </td>
-                                    <td>
-                                        <button
+                                    <td
+                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        Non récupérer
+                                    </td>
+                                    <td class="text-center">
+                                        <!-- <button
                                             class="bg-green-600 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
                                             type="button" style="transition:all .15s ease">
                                             Détails
-                                        </button>
+                                        </button> -->
+                                        <i class="fas fa-history" title="historiques"></i>
                                     </td>
                                 </tr>
                             </tbody>
