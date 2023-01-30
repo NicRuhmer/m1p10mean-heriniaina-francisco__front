@@ -16,7 +16,7 @@
                         <div class="rounded-t mb-0 px-6 py-6">
                             <div class="text-center mb-3">
                                 <h6 class="text-gray-600 text-sm font-bold">
-                                    IDEAL<span class="text-red-700">AUTO</span>
+                                    Profile<span class="text-red-700">AUTO</span>
                                 </h6>
                             </div>
                             <div class="btn-wrapper text-center justify-center">
@@ -24,19 +24,20 @@
                             </div>
                         </div>
                         <div class="flex-auto px-4 lg:px-10 py-5 pt-0  " >
-                        
+                            <form name="test-form" *ngIf="detail" [formGroup]="testform" (ngSubmit)="setting()">
+
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="relative w-full mb-3">
                                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
                                         for="grid-password">Name<span>*</span></label>
-                                        <input type="name" [(ngModel)]="name" required  id="name"
+                                        <input type="name" required   formControlName="testform.name" name="name" value="{{detail.name}}"
                                         class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                         placeholder="Name" style="transition: all 0.15s ease 0s;" />
                                 </div>
                                 <div class="relative w-full mb-3">
                                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
                                         for="grid-password">Username</label>
-                                        <input type="name" [(ngModel)]="username"  id="username"
+                                        <input type="name" formControlName="testform.username"  name="username" value="{{detail.username}}"
                                         class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                         placeholder="username" style="transition: all 0.15s ease 0s;" />
                                 </div>
@@ -46,14 +47,14 @@
                                 <div class="relative w-full mb-3">
                                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
                                         for="grid-password">C.I.N.<span>*</span></label>
-                                        <input type="name" [(ngModel)]="cin" required  id="cin"
+                                        <input type="name" formControlName="cin" required  name="cin" value="{{detail.cin}}"
                                         class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                         placeholder="C.I.N." style="transition: all 0.15s ease 0s;" />
                                 </div>
                                 <div class="relative w-full mb-3">
                                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
                                         for="grid-password">Contact<span>*</span></label>
-                                        <input type="name" [(ngModel)]="contact" required  id="contact"
+                                        <input type="name" formControlName="contact" required  name="contact" value="{{detail.contact}}"
                                         class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                         placeholder="Contact" style="transition: all 0.15s ease 0s;" />
                                 </div>
@@ -63,44 +64,29 @@
                                 <div class="relative w-full mb-3">
                                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
                                         for="grid-password">Adresse<span>*</span></label>
-                                        <input type="name" [(ngModel)]="adresse" required  id="adresse"
+                                        <input type="name" formControlName="adresse" required  name="adresse" value="{{detail.adresse}}"
                                         class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                         placeholder="Adresse" style="transition: all 0.15s ease 0s;" />
                                 </div>
                                 <div class="relative w-full mb-3">
                                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
                                         for="grid-password">Email<span>*</span></label>
-                                        <input type="email" [(ngModel)]="email" required  id="email"
+                                        <input type="email" formControlName="email" required  name="email" value="{{detail.email}}"
                                         class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                         placeholder="Adresse e-mail" style="transition: all 0.15s ease 0s;" />
                                 </div>
                             </div>
                                 
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="relative w-full mb-3">
-                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                        for="grid-password">Mot de passe</label>
-                                        <input type="password" [(ngModel)]="new_password" required  id="new_password"
-                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                        placeholder="Mot de passe" style="transition: all 0.15s ease 0s;" />
-                                </div>
-                                <div class="relative w-full mb-3">
-                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                        for="grid-password">Confirmer votre mot de passe</label>
-                                        <input type="password" [(ngModel)]="confirm_password" required  id="confirm_password"
-                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                        placeholder="Mot de passe" style="transition: all 0.15s ease 0s;" />
-                                </div>
-                            </div>
+                          
                                 <p style="color:red;">{{error}}</p>
                                 <div class="text-center mt-6">
-                                    <button  (click)="register()"
+                                    <button  
                                         class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                                        type="button" style="transition: all 0.15s ease 0s;">
+                                        type="submit" style="transition: all 0.15s ease 0s;">
                                         Créer un compte
                                     </button>
                                 </div>
-                         
+                         </form>
                         </div>
                     </div>
                 </div>

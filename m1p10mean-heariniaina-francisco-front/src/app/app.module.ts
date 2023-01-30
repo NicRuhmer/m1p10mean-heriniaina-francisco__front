@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DepotComponent } from './components/depot/depot.component';
 import { ReparationComponent } from './components/reparation/reparation.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HistoriqueComponent } from './historique/historique.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,16 @@ import { ReparationComponent } from './components/reparation/reparation.componen
     DashboardComponent,
     SidebarComponent,
     DepotComponent,
-    ReparationComponent
+    ReparationComponent,
+    ProfileComponent,
+    HistoriqueComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [],

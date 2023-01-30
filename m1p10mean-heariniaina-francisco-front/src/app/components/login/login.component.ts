@@ -37,13 +37,6 @@ export class LoginComponent implements OnInit {
     })
   };
 
-  loginClient(email: string, mdp: string) {
-    let imput = {
-      'email': email,
-      'mdp': mdp
-    };
-    return this.http.post("http://localhost:3000/login.user", imput, this.httpOptions);
-  }
 
 
   login() {
@@ -58,8 +51,9 @@ export class LoginComponent implements OnInit {
       this.error = null;
 
       this.http.post("http://localhost:3000/api/login.user", form, this.httpOptions).subscribe((result: any) => {
-      // this.apiService.loginClient(form.username).subscribe((result:any)=>{
          if(result.status==200){
+          localStorage.setItem("id",result.data._id);
+          localStorage.setItem("name",result.data.name+" "+result.data.username);
           this.router.navigateByUrl('/dashboard');
          } else {
           this.error = result.message;
@@ -68,6 +62,12 @@ export class LoginComponent implements OnInit {
       });
 
     }
+  }
+
+  deconnecte(){
+    localStorage.removeItem("id");
+    localStorage.removeItem("name");
+    this.router.navigateByUrl('/login');
   }
 
 
