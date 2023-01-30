@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component,OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute,Router } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
   name: any = "";
   collapseShow = false;
-  constructor() { }
+  constructor(private http: HttpClient,public activatedRoute: ActivatedRoute,public router:Router) { }
 
   ngOnInit() {
     if(localStorage.getItem("id")!=null){
@@ -18,4 +19,9 @@ export class SidebarComponent implements OnInit {
   toggleCollapseShow() {
     this.collapseShow = !this.collapseShow;
   }
+  deconecte(){
+    localStorage.removeItem('id');
+    this.router.navigateByUrl('/home');
+
+}
 }

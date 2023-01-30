@@ -147,13 +147,13 @@
                                     Liste des voitures déposées
                                 </h3>
                             </div>
-                            <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                            <!-- <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
                                 <button
                                     class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
                                     type="button" style="transition:all .15s ease">
                                     Voir tout
                                 </button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="block w-full overflow-x-auto">
@@ -163,15 +163,23 @@
                                 <tr>
                                     <th
                                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Marque Voiture
+                                        Marque
                                     </th>
                                     <th
                                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Date de dépot
+                                        Matricule
                                     </th>
                                     <th
                                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Réparations
+                                        Déposé le
+                                    </th>
+                                    <th
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Pris par
+                                    </th>
+                                    <th
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Contact
                                     </th>
                                     <th
                                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
@@ -181,122 +189,46 @@
                                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         Montant
                                     </th>
+                                    <th
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Fin réparation
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let item of data">
                                     <th
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Toyota
+                                        {{ item.data.voiture.description }}
                                     </th>
                                     <td
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        21/12/2022
+                                        {{ item.data.voiture.matricule }}
                                     </td>
                                     <td
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        Climatiseur
+                                        {{ formatDate(item.data.createdAt) }}
+                                    </td>
+                                    <td 
+                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        {{ item.data.employe.name }}
                                     </td>
                                     <td
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        50%
+                                        {{ item.data.employe.contact }}
                                     </td>
                                     <td
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                        45 000
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Renault
-                                    </th>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        23/04/2022
+                                        {{ item.pourcentage }}
+                                        <i class="fas fa-percent text-orange-500 ml-4"></i>
                                     </td>
                                     <td
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        Moteur
+                                        {{ item.montant }} Ar
                                     </td>
                                     <td
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        20%
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <i class="fas fa-arrow-down text-orange-500 mr-4"></i>
-                                        60 000 AR
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Renault
-                                    </th>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        23/04/2022
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        Moteur
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        20%
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <i class="fas fa-arrow-down text-orange-500 mr-4"></i>
-                                        60 000 AR
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Renault
-                                    </th>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        23/04/2022
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        Moteur
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        20%
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <i class="fas fa-arrow-down text-orange-500 mr-4"></i>
-                                        60 000 AR
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Renault
-                                    </th>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        23/04/2022
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        Moteur
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        20%
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <i class="fas fa-arrow-down text-orange-500 mr-4"></i>
-                                        60 000 AR
+                                        {{ formatDate(item.data.release_date) }}
                                     </td>
                                 </tr>
                             </tbody>
