@@ -29,7 +29,6 @@ export class DashboardComponent implements OnInit {
        
          } else {
           this.listeVoitures = result.data;
-          alert(JSON.stringify("ok"));
          }
       });
     }

@@ -4,28 +4,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
-  selector: 'app-depot',
-  templateUrl: './depot.component.html',
-  styleUrls: ['./depot.component.scss']
+  selector: 'app-voiture',
+  templateUrl: './voiture.component.html',
+  styleUrls: ['./voiture.component.scss']
 })
-export class DepotComponent {
-
-  voiture: any = "";
-  description: any = "";
+export class VoitureComponent {
+  name: any = "";
+  matricule: any = "";
+  carburant: any = "";
+  model: any = "";
   listeVoitures: any;
-  listeDeposer: any;
+
   error: any;
   path_login = 'http://localhost:3000';
+
 
   constructor(public http: HttpClient, public activatedRoute: ActivatedRoute, public router: Router) {
 
   }
 
   ngOnInit() {
-  
+    this.listVoiture();
     if (localStorage.getItem("id") != null) {
-      this.listVoiture();
-    this.listVoitureDeposer();
+    
     } else {
       this.deconnecte();
     }
@@ -51,29 +52,20 @@ export class DepotComponent {
     });
   }
 
-
-  listVoitureDeposer() {
-    this.http.get("http://localhost:3000/api/list/" + localStorage.getItem("id") + "/reparation-client-attente").subscribe((result: any) => {
-      if (result.status == 400) {
-        alert(JSON.stringify(result.message));
-      } else {
-        this.listeDeposer = result;
-      }
-    });
-  }
-
   register() {
     const form = {
-      voiture: this.voiture,
-      description: this.description
+      name: this.name,
+      matricule: this.matricule,
+      carburant: this.carburant,
+      model: this.model
     };
 
-    if (form.voiture != "" ) {
-      this.http.post("http://localhost:3000/api/create/" + localStorage.getItem("id") + "/reparation", form, this.httpOptions).subscribe((result: any) => {
+    if (this.name != "" || this.matricule != "" || this.carburant != "" || this.model != "") {
+      this.http.post("http://localhost:3000/api/create/" + localStorage.getItem("id") + "/voiture", form, this.httpOptions).subscribe((result: any) => {
       if (result.status == 200) {
-        this.error = result.message;
+          this.listeVoitures = result.data;
         } else {
-          this.listeDeposer = result;
+          this.error = result.message;
         }
       });
     } else {

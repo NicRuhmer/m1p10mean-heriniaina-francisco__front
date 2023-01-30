@@ -8,7 +8,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./historique.component.scss']
 })
 export class HistoriqueComponent {
-
   voiture:any="";
   listeVoitures:any;
   historiques:any;
@@ -26,45 +25,37 @@ export class HistoriqueComponent {
       this.deconnecte();
     }
    }
- 
- 
-   httpOptions = {
-     headers: new HttpHeaders({
-       'Content-Type': 'application/json'
-     })
-   };
- 
- 
+
+
   listVoiture(){
-   this.http.get("http://localhost:3000/api/list/"+localStorage.getItem("id")+"/voiture").subscribe((result: any) => {
-    
-       if(result.status==400){
-         alert(JSON.stringify(result.message));
-          } else {
-         
-           this.listeVoitures = result.data;
-          
-          }
-       });
-  }
- 
-  filter_historiques(){
-    this.http.get("http://localhost:3000/api/historique/"+this.voiture+"/reparation-client").subscribe((result: any) => {
-    
-    if(result.status==400){
-      alert(JSON.stringify(result.message));
-       } else {
+    this.http.get("http://localhost:3000/api/list/"+localStorage.getItem("id")+"/voiture").subscribe((result: any) => {
      
-        this.historiques = result;
-       
-       }
-    });
-  }
+        if(result.status==400){
+          alert(JSON.stringify(result.message));
+           } else {
+          
+            this.listeVoitures = result.data;
+           
+           }
+        });
+   }
   
-  deconnecte(){
-    localStorage.removeItem("id");
-    localStorage.removeItem("name");
-    this.router.navigateByUrl('/login');
-  }
- 
+   filter_historiques(){
+     this.http.get("http://localhost:3000/api/historique/"+this.voiture+"/reparation-client").subscribe((result: any) => {
+     
+     if(result.status==400){
+       alert(JSON.stringify(result.message));
+        } else {
+      
+         this.historiques = result;
+        
+        }
+     });
+   }
+   
+   deconnecte(){
+     localStorage.removeItem("id");
+     localStorage.removeItem("name");
+     this.router.navigateByUrl('/login');
+   }
 }

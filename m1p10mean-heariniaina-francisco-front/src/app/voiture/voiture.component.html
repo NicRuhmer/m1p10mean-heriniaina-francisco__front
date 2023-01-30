@@ -10,84 +10,72 @@
             <div class="flex content-center items-center justify-center h-full">
                 <div class="w-full lg:w-12/12 px-4">
                     <div
-                        class="relative flex flex-col min-w-0 break-words w-full
-                        mb-6 shadow-lg rounded-lg bg-gray-100 border-0">
+                        class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-100 border-0">
                         <div class="rounded-t mb-0 px-6 py-6">
                             <div class="text-center mb-3">
                                 <h6 class="text-gray-600 text-sm font-bold">
-                                    Déposer voiture
+                                    Mes voitures
                                 </h6>
                             </div>
-
+                            
                         </div>
                         <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-
-
-                            <div class="flex flex-row justify-between relative
-                                w-full mb-3">
-                                <div class="px-1 w-2/12">
-                                    <label class="block uppercase text-gray-700
-                                        text-xs font-bold mb-2"
-                                        for="grid-password">Choisir la voiture<span>*</span></label>
+                      
+                                <div class="flex flex-row justify-between relative w-full mb-3">
+                                    <div class="px-1 w-6/12">
+                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-password">Marque<span>*</span></label>
+                                        <input type="text" [(ngModel)]="name" required
+                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                        placeholder="Marque de la voiture" style="transition: all 0.15s ease 0s;" />
+                                    </div>
+                                    <div class="px-1 w-6/12">
+                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-password">Modèle<span>*</span></label>
+                                        <input type="text" [(ngModel)]="model" required
+                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                        placeholder="Modèle de la voiture" style="transition: all 0.15s ease 0s;" />
+                                    </div>
                                 </div>
-                                <div class="px-1 w-6/12">
-
-                                    <select [(ngModel)]="voiture"
-                                        id="voiture" class="border-0 px-3
-                                        py-3 placeholder-gray-400 text-gray-700
-                                        bg-white rounded text-sm shadow
-                                        focus:outline-none focus:ring w-full"
-                                        >
-                                        <option *ngFor="let liste of
-                                            listeVoitures"
-                                            value="{{liste._id}}">{{liste.description}}</option>
-                                    </select>
+                                <div class="flex flex-row justify-between relative w-full mb-3">
+                                   
+                                    <div class="px-1 w-6/12">
+                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-password">Immatriculation<span>*</span></label>
+                                        <input type="text"  [(ngModel)]="matricule" required
+                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                        placeholder="Immatriculation" style="transition: all 0.15s ease 0s;" />
+                                    </div>
+                                    <div class="px-1 w-6/12">
+                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-password">Carburant<span>*</span></label>
+                                        <input type="text"  [(ngModel)]="carburant" required
+                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                        placeholder="Carburant" style="transition: all 0.15s ease 0s;" />
+                                    </div>
                                 </div>
-
-                            </div>
-
-                            <div class="px-1 w-full">
-                                <label class="block uppercase text-gray-700
-                                    text-xs font-bold mb-2"
-                                    for="grid-password">Description du réparation</label>
-                                <textarea class="border-0 px-3 py-3
-                                    placeholder-gray-400 text-gray-700 bg-white
-                                    rounded text-sm shadow focus:outline-none
-                                    focus:ring w-full" placeholder="Description"
-                                    id="description" name="description"  [(ngModel)]="description"
-                                    rows="3"></textarea>
-                            </div>
-
-                            <div class="text-center mt-6">
-                                <button (click)="register()"
-                                    class="bg-gray-900 text-white
-                                    active:bg-gray-700 text-sm font-bold
-                                    uppercase px-6 py-3 rounded shadow
-                                    hover:shadow-lg outline-none
-                                    focus:outline-none mr-1 mb-1 w-6/12"
-                                    type="button" style="transition: all 0.15s
-                                    ease 0s;">
-                                    Déposer votre voiture
-                                </button>
-                            </div>
-                            <p style="color: red;">{{error}}</p>
-
+                                <div class="text-center mt-6">
+                                    <button (click)="register()"
+                                        class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-6/12"
+                                        type="button" style="transition: all 0.15s ease 0s;">
+                                        Déposer votre voiture
+                                    </button>
+                                </div>
+                                <p style="color: red;">{{error}}</p>
+                           
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
         <div class="flex flex-wrap mt-4">
             <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
-                <div class="relative flex flex-col min-w-0 break-words bg-white
-                    w-full mb-6 shadow-lg rounded">
+                <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
                     <div class="rounded-t mb-0 px-4 py-3 border-0">
                         <div class="flex flex-wrap items-center">
-                            <div class="relative w-full px-4 max-w-full
-                                flex-grow flex-1">
-                                <h3 class="font-semibold text-base
-                                    text-blueGray-700">
-                                    Liste des voitures déposés
+                            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                                <h3 class="font-semibold text-base text-blueGray-700">
+                                    Liste des voitures
                                 </h3>
                             </div>
                             <!-- <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
@@ -101,90 +89,56 @@
                     </div>
                     <div class="block w-full overflow-x-auto">
                         <!-- Projects table -->
-                        <table class="items-center w-full bg-transparent
-                            border-collapse">
+                        <table class="items-center w-full bg-transparent border-collapse">
                             <thead>
                                 <tr>
                                     <th
-                                        class="px-6 bg-blueGray-50
-                                        text-blueGray-500 align-middle border
-                                        border-solid border-blueGray-100 py-3
-                                        text-xs uppercase border-l-0 border-r-0
-                                        whitespace-nowrap font-semibold
-                                        text-left">
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         Date
                                     </th>
                                     <th
-                                        class="px-6 bg-blueGray-50
-                                        text-blueGray-500 align-middle border
-                                        border-solid border-blueGray-100 py-3
-                                        text-xs uppercase border-l-0 border-r-0
-                                        whitespace-nowrap font-semibold
-                                        text-left">
-                                        Voiture
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                       Description
                                     </th>
-                                    
                                     <th
-                                        class="px-6 bg-blueGray-50
-                                        text-blueGray-500 align-middle border
-                                        border-solid border-blueGray-100 py-3
-                                        text-xs uppercase border-l-0 border-r-0
-                                        whitespace-nowrap font-semibold
-                                        text-left">
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         Matricule
                                     </th>
                                     <th
-                                        class="px-6 bg-blueGray-50
-                                        text-blueGray-500 align-middle border
-                                        border-solid border-blueGray-100 py-3
-                                        text-xs uppercase border-l-0 border-r-0
-                                        whitespace-nowrap font-semibold
-                                        text-left">
-                                        Carburant
-                                    </th>
-                                    <th
-                                        class="px-6 bg-blueGray-50
-                                        text-blueGray-500 align-middle border
-                                        border-solid border-blueGray-100 py-3
-                                        text-xs uppercase border-l-0 border-r-0
-                                        whitespace-nowrap font-semibold
-                                        text-left">
-                                        Description
-                                    </th>
+                                    class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                    Carburant
+                                </th>
+                                <th
+                                class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                Model
+                            </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let liste of listeDeposer">
+                                <tr *ngFor="let liste of listeVoitures">
+                                    <td
+                                    class="border-t-0 px-6 align-middle
+                                    border-l-0 border-r-0 text-xs
+                                    whitespace-nowrap p-4">
+                                    <p> {{liste.createdAt}}</p>
+                                </td>
                                     <td
                                         class="border-t-0 px-6 align-middle
                                         border-l-0 border-r-0 text-xs
                                         whitespace-nowrap p-4">
-                                        <p> {{liste.data.createdAt}}</p>
+                                        <p> {{liste.description}}</p>
                                     </td>
                                     <td
                                         class="border-t-0 px-6 align-middle
                                         border-l-0 border-r-0 text-xs
                                         whitespace-nowrap p-4">
-                                        <p> {{liste.data.voiture.description}}</p>
-                                    </td>
-                                   
-                                    <td
-                                        class="border-t-0 px-6 align-middle
-                                        border-l-0 border-r-0 text-xs
-                                        whitespace-nowrap p-4">
-                                        {{liste.data.voiture.matricule}}
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle
-                                        border-l-0 border-r-0 text-xs
-                                        whitespace-nowrap p-4">
-                                        {{liste.data.voiture.carburant}}
+                                        <p> {{liste.matricule}}</p>
                                     </td>
                                     <td
                                     class="border-t-0 px-6 align-middle
                                     border-l-0 border-r-0 text-xs
                                     whitespace-nowrap p-4">
-                                    <p> {{liste.data.description}}</p>
+                                    <p> {{liste.carburant}}</p>
                                 </td>
                                 </tr>
 

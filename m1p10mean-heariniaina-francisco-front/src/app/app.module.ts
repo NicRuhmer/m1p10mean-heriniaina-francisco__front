@@ -16,6 +16,7 @@ import { DepotComponent } from './components/depot/depot.component';
 import { ReparationComponent } from './components/reparation/reparation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HistoriqueComponent } from './historique/historique.component';
+import { VoitureComponent } from './voiture/voiture.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HistoriqueComponent } from './historique/historique.component';
     DepotComponent,
     ReparationComponent,
     ProfileComponent,
-    HistoriqueComponent
+    HistoriqueComponent,
+    VoitureComponent
   ],
   imports: [
     BrowserModule,
