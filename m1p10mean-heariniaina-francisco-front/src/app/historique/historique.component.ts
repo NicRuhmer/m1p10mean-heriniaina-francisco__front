@@ -20,8 +20,11 @@ export class HistoriqueComponent {
    }
  
    ngOnInit() {
-     this.listVoiture();
-     
+    if(localStorage.getItem("id")!=null){
+      this.listVoiture();
+    } else {
+      this.deconnecte();
+    }
    }
  
  
@@ -58,5 +61,10 @@ export class HistoriqueComponent {
     });
   }
   
+  deconnecte(){
+    localStorage.removeItem("id");
+    localStorage.removeItem("name");
+    this.router.navigateByUrl('/login');
+  }
  
 }

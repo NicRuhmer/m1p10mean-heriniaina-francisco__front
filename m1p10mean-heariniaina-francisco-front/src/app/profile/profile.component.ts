@@ -37,20 +37,20 @@ export class ProfileComponent {
 
   }
 
+
   ngOnInit() {
-    this.profile();
+    if(localStorage.getItem("id")!=null){
+      this.profile();
     this.testform = this.fb.group({
-
       id: [''],
-
       first_name: [''],
-
       last_name: [''],
-
       phone: ['']
-
     });
-  }
+    } else {
+      this.deconnecte();
+    }
+   }
 
 
   httpOptions = {
@@ -113,6 +113,11 @@ export class ProfileComponent {
       this.error = "Champ invalide !";
     }*/
   }
-
+  deconnecte(){
+    localStorage.removeItem("id");
+    localStorage.removeItem("name");
+    this.router.navigateByUrl('/login');
+  }
+ 
 
 }
