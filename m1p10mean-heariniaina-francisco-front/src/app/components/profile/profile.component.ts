@@ -62,7 +62,7 @@ export class ProfileComponent {
 
  profile(){
 
-  this.http.get("http://localhost:3000/api/client/"+localStorage.getItem("id")).subscribe((result: any) => {
+  this.http.get("http://51.178.17.54:3001/api/client/"+localStorage.getItem("id")).subscribe((result: any) => {
    
       if(result.status==400){
         alert(JSON.stringify(result.message));
@@ -99,7 +99,7 @@ export class ProfileComponent {
     };
 
    if (form.cin != "" || form.name != "" || form.contact != "" || form.adresse != "" && form.email != "") {
-        this.http.post("http://localhost:3000/api/client.update/"+localStorage.getItem("id"), form, this.httpOptions).subscribe((result: any) => {
+        this.http.post("http://51.178.17.54:3001/api/client.update/"+localStorage.getItem("id"), form, this.httpOptions).subscribe((result: any) => {
       alert(JSON.stringify(result));
 
         if (result.status == 200) {

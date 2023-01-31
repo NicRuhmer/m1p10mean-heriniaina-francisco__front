@@ -13,6 +13,10 @@ export class VoitureComponent {
   matricule: any = "";
   carburant: any = "";
   model: any = "";
+  nameV: any = "";
+  matriculeV: any = "";
+  carburantV: any = "";
+  modelV: any = "";
   listeVoitures: any;
 
   error: any;
@@ -42,7 +46,7 @@ export class VoitureComponent {
 
   listVoiture() {
    
-    this.http.get("http://localhost:3000/api/list/" + localStorage.getItem("id") + "/voiture").subscribe((result: any) => {
+    this.http.get("http://51.178.17.54:3001/api/list/" + localStorage.getItem("id") + "/voiture").subscribe((result: any) => {
 
       if (result.status == 400) {
         alert(JSON.stringify(result.message));
@@ -61,7 +65,28 @@ export class VoitureComponent {
     };
 
     if (this.name != "" || this.matricule != "" || this.carburant != "" || this.model != "") {
-      this.http.post("http://localhost:3000/api/create/" + localStorage.getItem("id") + "/voiture", form, this.httpOptions).subscribe((result: any) => {
+      this.http.post("http://51.178.17.54:3001/api/create/" + localStorage.getItem("id") + "/voiture", form, this.httpOptions).subscribe((result: any) => {
+      if (result.status == 200) {
+          this.listeVoitures = result.data;
+        } else {
+          this.error = result.message;
+        }
+      });
+    } else {
+      this.error = "Champ invalide !";
+    }
+  }
+
+  modifier() {
+    const form = {
+      name: this.nameV,
+      matricule: this.matriculeV,
+      carburant: this.carburantV,
+      model: this.modelV
+    };
+
+    if (this.name != "" || this.matricule != "" || this.carburant != "" || this.model != "") {
+      this.http.post("http://51.178.17.54:3001/api/create/" + localStorage.getItem("id") + "/voiture", form, this.httpOptions).subscribe((result: any) => {
       if (result.status == 200) {
           this.listeVoitures = result.data;
         } else {
@@ -78,6 +103,11 @@ export class VoitureComponent {
     localStorage.removeItem("id");
     localStorage.removeItem("name");
     this.router.navigateByUrl('/login');
+  }
+
+  showModal = false;
+  toggleModal(){
+    this.showModal = !this.showModal;
   }
 
 }

@@ -27,16 +27,16 @@
                             
                                 <div class="relative w-full mb-3">
                                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                        for="grid-password">Email</label><input type="email" id="username"  [(ngModel)]="username" required
+                                        for="grid-password">Email (ex default: <span style="text-transform: lowercase;">nicrohmer0@gmail.com</span>)</label><input type="email" id="username"  value="nicrohmer0@gmail.com" [(ngModel)]="username" required
                                         class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                         placeholder="Adresse e-mail" [(ngModel)]="username" required
                                         style="transition: all 0.15s ease 0s;" />
                                 </div>
                                 <div class="relative w-full mb-3">
                                     <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                                        for="grid-password">Mot de passe</label><input type="password"   [(ngModel)]="password" required  id="password"
+                                        for="grid-password">Mot de passe</label><input type="password"  value="develop"  [(ngModel)]="password" required  id="password"
                                         class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                        placeholder="Mot de passe" [(ngModel)]="password" required
+                                        placeholder="ex default: develop" [(ngModel)]="password" required
                                         style="transition: all 0.15s ease 0s;" />
                                 </div>
                                 <!-- <div>
@@ -53,7 +53,7 @@
                                         <i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;Se connecter
                                     </button>
                                 </div>
-                                <p>{{ error }}</p>
+                                <p style="color:red;">{{ error }}</p>
 
                             
                         </div>

@@ -1,0 +1,276 @@
+<app-sidebar></app-sidebar>
+<!-- <router-outlet></router-outlet> -->
+<div class="relative md:ml-64 bg-blueGray-100">
+    <!-- <app-navbar></app-navbar> -->
+    <!-- Header -->
+    <div class="relative bg-sky-600 md:pt-5 pb-5 pt-12">
+        <div class="px-4 md:px-10 mx-auto w-full">
+            <div>
+                <!-- Card stats -->
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                            <div class="flex-auto p-4">
+                                <div class="flex flex-wrap">
+                                    <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                                        <h5 class="text-blueGray-400 uppercase font-bold text-xs">
+                                            Client
+                                        </h5>
+                                        <span class="font-semibold text-xl text-blueGray-700">
+                                            {{ data.detail.voiture.client.name}}
+                                        </span><br>
+                                        <span class="text-gray-400">
+                                            {{ data.detail.voiture.client.username}}
+                                        </span>
+                                    </div>
+                                    <div class="relative w-auto pl-4 flex-initial">
+                                        <div
+                                            class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-blue-500">
+                                            <i class="far fa-user"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                            <div class="flex-auto p-4">
+                                <div class="flex flex-wrap">
+                                    <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                                        <h5 class="text-blueGray-400 uppercase font-bold text-xs">
+                                            Véhicule
+                                        </h5>
+                                        <span class="font-semibold text-xl text-blueGray-700">
+                                            {{ data.detail.voiture.description}}
+                                        </span><br>
+                                        <span class="text-gray-400">
+                                            {{ data.detail.voiture.matricule}}
+                                        </span>
+                                    </div>
+                                    <div class="relative w-auto pl-4 flex-initial">
+                                        <div
+                                            class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-orange-500">
+                                            <i class="fas fa-car"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                            <div class="flex-auto p-4">
+                                <div class="flex flex-wrap">
+                                    <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                                        <h5 class="text-blueGray-400 uppercase font-bold text-xs">
+                                            Responsable
+                                        </h5>
+                                        <span class="font-semibold text-xl text-blueGray-700">
+                                            {{ data.detail.employe.name}}
+                                        </span><br>
+                                        <span class="text-gray-400">
+                                            {{ data.detail.employe.contact}}
+                                        </span>
+                                    </div>
+                                    <div class="relative w-auto pl-4 flex-initial">
+                                        <div
+                                            class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-yellow-500">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relative bg-sky-600 md:pt-5 pb-12 pt-12">
+        <div class="px-4 md:px-10 mx-auto w-full">
+            <div>
+                <!-- Card stats -->
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                            <div class="flex-auto p-4">
+                                <div class="flex flex-wrap">
+                                    <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                                        <h5 class="text-blueGray-400 uppercase font-bold text-xs">
+                                            ESTIMATION À FAIRE
+                                        </h5>
+                                        <span class="font-semibold text-xl text-blueGray-700">
+                                            {{ data.task_pourcentage}} %
+                                        </span><br>
+                                        <!-- <div class="relative pt-1">
+                                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-pink-200">
+                                                <div [style.width]="+data.task_pourcentage+ '%'"
+                                                    class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-danger-500">
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="relative w-auto pl-4 flex-initial">
+                                        <div
+                                            class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-red-500">
+                                            <i class="fas fa-percent"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                            <div class="flex-auto p-4">
+                                <div class="flex flex-wrap">
+                                    <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                                        <h5 class="text-blueGray-400 uppercase font-bold text-xs">
+                                            ESTIMATION À EN cours
+                                        </h5>
+                                        <span class="font-semibold text-xl text-blueGray-700">
+                                            {{ data.progress_pourcentage}} %
+                                        </span><br>
+                                        <!-- <div class="relative pt-1">
+                                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-pink-500">
+                                                <div [style.width]="+data.task_pourcentage+ '%'"
+                                                    class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-pink-500">
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="relative w-auto pl-4 flex-initial">
+                                        <div
+                                            class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-pink-500">
+                                            <i class="fas fa-percent"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                            <div class="flex-auto p-4">
+                                <div class="flex flex-wrap">
+                                    <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                                        <h5 class="text-blueGray-400 uppercase font-bold text-xs">
+                                            ESTIMATION Términé
+                                        </h5>
+                                        <span class="font-semibold text-xl text-blueGray-700">
+                                            {{ data.finish_pourcentage}} %
+                                        </span><br>
+                                        <!-- <div class="relative pt-1">
+                                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-500">
+                                                <div [style.width]="+data.task_pourcentage+ '%'"
+                                                    class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500">
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="relative w-auto pl-4 flex-initial">
+                                        <div
+                                            class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-green-500">
+                                            <i class="fas fa-percent"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relative bg-sky-600 md:pt-5 pb-32 pt-12">
+        <div class="px-4 md:px-10 mx-auto w-full">
+            <div>
+                <!-- Card stats -->
+                <div class="flex flex-wrap">
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                            <div class="flex-auto p-4">
+                                <div class="flex flex-wrap">
+                                    <div class="relative w-full max-w-full flex-grow flex-1">
+                                        <h5
+                                            class="text-white text-center bg-red-500 py-3 uppercase font-bold text-lg rounded">
+                                            À faire
+                                        </h5>
+                                    </div>
+
+                                </div>
+                                <div class="relative w-full shadow rounded max-w-full py-5 flex-grow mt-5 flex-1"
+                                    *ngFor="let item of data.tasks">
+                                    <span class="text-black px-5">
+                                        Titre : {{ item.title}}
+                                    </span><br>
+                                    <span class="text-black px-5">
+                                        Description : {{ item.description }}
+                                    </span><br>
+                                    <span class="text-black px-5">
+                                        Quantité : {{ item.qte }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                            <div class="flex-auto p-4">
+                                <div class="flex flex-wrap">
+                                    <div class="relative w-full max-w-full flex-grow flex-1">
+                                        <h5
+                                            class="text-white text-center bg-pink-500 py-3 uppercase font-bold text-lg rounded">
+                                            À Cours
+                                        </h5>
+                                    </div>
+
+                                </div>
+                                <div class="relative w-full shadow rounded max-w-full py-5 flex-grow mt-5 flex-1"
+                                    *ngFor="let item of data.progress">
+                                    <span class="text-black px-5">
+                                        Titre : {{ item.title}}
+                                    </span><br>
+                                    <span class="text-black px-5">
+                                        Description : {{ item.description }}
+                                    </span><br>
+                                    <span class="text-black px-5">
+                                        Quantité : {{ item.qte }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                            <div class="flex-auto p-4">
+                                <div class="flex flex-wrap">
+                                    <div class="relative w-full max-w-full flex-grow flex-1">
+                                        <h5
+                                            class="text-white text-center bg-green-500 py-3 uppercase font-bold text-lg rounded">
+                                            Términé
+                                        </h5>
+                                    </div>
+
+                                </div>
+                                <div class="relative w-full shadow rounded max-w-full py-5 flex-grow mt-5 flex-1"
+                                    *ngFor="let item of data.finish">
+                                    <span class="text-black px-5">
+                                        Titre : {{ item.title}}
+                                    </span><br>
+                                    <span class="text-black px-5">
+                                        Description : {{ item.description }}
+                                    </span><br>
+                                    <span class="text-black px-5">
+                                        Quantité : {{ item.qte }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

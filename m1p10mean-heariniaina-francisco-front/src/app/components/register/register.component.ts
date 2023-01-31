@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
 
     if (this.cin != "" || this.name != "" || this.contact != "" || this.adresse != "" && this.email != "" && this.new_password != "" && this.confirm_password != "") {
       if (this.new_password == this.confirm_password) {
-        this.http.post("http://localhost:3000/api/client.create", form, this.httpOptions).subscribe((result: any) => {
+        this.http.post("http://51.178.17.54:3001/api/client.create", form, this.httpOptions).subscribe((result: any) => {
         if (result.status == 200) {
             localStorage.setItem("id",result.data._id);
             localStorage.setItem("name",result.data.name+" "+result.data.username);

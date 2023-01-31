@@ -8,6 +8,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
   name: any = "";
+
   collapseShow = false;
   constructor(private http: HttpClient,public activatedRoute: ActivatedRoute,public router:Router) { }
 
@@ -19,9 +20,9 @@ export class SidebarComponent implements OnInit {
   toggleCollapseShow() {
     this.collapseShow = !this.collapseShow;
   }
-  deconecte(){
-    localStorage.removeItem('id');
-    this.router.navigateByUrl('/home');
-
-}
+  deconnecte() {
+    localStorage.removeItem("id");
+    localStorage.removeItem("name");
+    this.router.navigateByUrl('/login');
+  }
 }

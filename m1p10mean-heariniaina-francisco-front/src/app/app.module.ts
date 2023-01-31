@@ -14,9 +14,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DepotComponent } from './components/depot/depot.component';
 import { ReparationComponent } from './components/reparation/reparation.component';
-import { ProfileComponent } from './profile/profile.component';
-import { HistoriqueComponent } from './historique/historique.component';
-import { VoitureComponent } from './voiture/voiture.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { HistoriqueComponent } from './components/historique/historique.component';
+import { VoitureComponent } from './components/voiture/voiture.component';
+import { AvancementComponent } from './components/avancement/avancement.component';
+import { FactureComponent } from './components/facture/facture.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { VoitureComponent } from './voiture/voiture.component';
     ReparationComponent,
     ProfileComponent,
     HistoriqueComponent,
-    VoitureComponent
+    VoitureComponent,
+    AvancementComponent,
+    FactureComponent
   ],
   imports: [
     BrowserModule,

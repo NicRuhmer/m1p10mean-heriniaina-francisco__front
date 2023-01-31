@@ -187,16 +187,20 @@
                                     </th>
                                     <th
                                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                                        Montant
+                                        N° Facture
                                     </th>
                                     <th
                                         class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Montant
+                                    </th>
+                                    <th
+                                        class="px-6 bg-blueGray-50 text-center text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
                                         Fin réparation
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of data">
+                                <tr *ngFor="let item of data" class="clic">
                                     <th
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
                                         {{ item.data.voiture.description }}
@@ -217,17 +221,29 @@
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         {{ item.data.employe.contact }}
                                     </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    <td [routerLink]="['/avancement/'+item.data._id]"
+                                        class="border-t-0 px-6 align-middle lien border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         {{ item.pourcentage }}
-                                        <i class="fas fa-percent text-orange-500 ml-4"></i>
+                                        <i class="fas fa-percent text-orange-500"></i>
                                     </td>
-                                    <td
+                                    <td *ngIf="item.data.facture.num_facture == null"
                                         class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        -
+                                    </td>
+                                    <td *ngIf="item.data.facture.num_facture != null" [routerLink]="['/facture/'+item.data._id]"
+                                        class="border-t-0 px-6 align-middle border-l-0 lien border-r-0 text-xs whitespace-nowrap p-4">
+                                        {{ item.data.facture.num_facture }}
+                                    </td>
+                                    <td 
+                                        class="border-t-0 px-6 align-middle border-l-0 lien border-r-0 text-xs whitespace-nowrap p-4">
                                         {{ item.montant }} Ar
                                     </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    <td *ngIf="item.data.release_date == null"
+                                        class="border-t-0 px-6 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        -
+                                    </td>
+                                    <td *ngIf="item.data.release_date != null"
+                                        class="border-t-0 px-6 text-center align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                         {{ formatDate(item.data.release_date) }}
                                     </td>
                                 </tr>

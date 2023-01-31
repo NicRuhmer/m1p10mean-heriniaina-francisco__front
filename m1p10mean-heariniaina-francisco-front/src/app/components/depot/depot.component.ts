@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-depot',
@@ -15,6 +16,7 @@ export class DepotComponent {
   listeVoitures: any;
   listeDeposer: any;
   error: any;
+  data: any;
   path_login = 'http://localhost:3000';
 
   constructor(public http: HttpClient, public activatedRoute: ActivatedRoute, public router: Router) {
@@ -37,11 +39,13 @@ export class DepotComponent {
       'Content-Type': 'application/json'
     })
   };
-
+  formatDate(dateFormat: any) {
+    return moment(dateFormat).format("DD/MM/YYYY")
+  }
 
   listVoiture() {
    
-    this.http.get("http://localhost:3000/api/list/" + localStorage.getItem("id") + "/voiture").subscribe((result: any) => {
+    this.http.get("http://51.178.17.54:3001/api/list/" + localStorage.getItem("id") + "/voiture").subscribe((result: any) => {
 
       if (result.status == 400) {
         alert(JSON.stringify(result.message));
@@ -53,7 +57,7 @@ export class DepotComponent {
 
 
   listVoitureDeposer() {
-    this.http.get("http://localhost:3000/api/list/" + localStorage.getItem("id") + "/reparation-client-attente").subscribe((result: any) => {
+    this.http.get("http://51.178.17.54:3001/api/list/" + localStorage.getItem("id") + "/reparation-client-attente").subscribe((result: any) => {
       if (result.status == 400) {
         alert(JSON.stringify(result.message));
       } else {
@@ -69,7 +73,7 @@ export class DepotComponent {
     };
 
     if (form.voiture != "" ) {
-      this.http.post("http://localhost:3000/api/create/" + localStorage.getItem("id") + "/reparation", form, this.httpOptions).subscribe((result: any) => {
+      this.http.post("http://51.178.17.54:3001/api/create/" + localStorage.getItem("id") + "/reparation", form, this.httpOptions).subscribe((result: any) => {
       if (result.status == 200) {
         this.error = result.message;
         } else {
@@ -80,7 +84,13 @@ export class DepotComponent {
       this.error = "Champ invalide !";
     }
   }
-
+  delete(id: any) {
+    alert(id);
+    this.http.delete("http://51.178.17.54:3001/api/delete/"+id+"/reparation").subscribe((result: any) => {
+      this.data = result;
+      this.listVoitureDeposer();
+    })
+  }
 
   deconnecte() {
     localStorage.removeItem("id");

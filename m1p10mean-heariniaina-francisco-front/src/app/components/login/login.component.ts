@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.error = null;
 
-      this.http.post("http://localhost:3000/api/login.user", form, this.httpOptions).subscribe((result: any) => {
+      this.http.post("http://51.178.17.54:3001/api/login.user", form, this.httpOptions).subscribe((result: any) => {
         if (result.status == 200) {
           localStorage.setItem("id", result.data._id);
           localStorage.setItem("name", result.data.name + " " + result.data.username);
