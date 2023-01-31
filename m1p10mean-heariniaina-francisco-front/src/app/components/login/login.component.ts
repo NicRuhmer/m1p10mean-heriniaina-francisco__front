@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   username: any = '';
   password: any = '';
   error: any;
-  path_login = "http://localhost:3000/api/login.user";
+  path_login = "http://51.178.17.54:3001/api/login.user";
 
   constructor(public http: HttpClient, public activatedRoute: ActivatedRoute, public router: Router) { }
 

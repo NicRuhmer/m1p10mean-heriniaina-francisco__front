@@ -17,7 +17,7 @@ export class DepotComponent {
   listeDeposer: any;
   error: any;
   data: any;
-  path_login = 'http://localhost:3000';
+  path_login = 'http://51.178.17.54:3001/';
 
   constructor(public http: HttpClient, public activatedRoute: ActivatedRoute, public router: Router) {
 

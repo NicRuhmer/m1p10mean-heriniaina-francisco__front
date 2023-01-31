@@ -31,7 +31,7 @@ export class ApiService {
      });  
    }  */
 
-URL = 'http://localhost:3000';
+URL = 'http://51.178.17.54:3001';
 
   httpOptions = {
     headers: new HttpHeaders({
