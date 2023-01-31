@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-depot',
@@ -15,6 +16,7 @@ export class DepotComponent {
   listeVoitures: any;
   listeDeposer: any;
   error: any;
+  data: any;
   path_login = 'http://localhost:3000';
 
   constructor(public http: HttpClient, public activatedRoute: ActivatedRoute, public router: Router) {
@@ -37,7 +39,9 @@ export class DepotComponent {
       'Content-Type': 'application/json'
     })
   };
-
+  formatDate(dateFormat: any) {
+    return moment(dateFormat).format("DD/MM/YYYY")
+  }
 
   listVoiture() {
    
@@ -80,7 +84,13 @@ export class DepotComponent {
       this.error = "Champ invalide !";
     }
   }
-
+  delete(id: any) {
+    alert(id);
+    this.http.delete("http://localhost:3000/api/delete/"+id+"/reparation").subscribe((result: any) => {
+      this.data = result;
+      this.listVoitureDeposer();
+    })
+  }
 
   deconnecte() {
     localStorage.removeItem("id");

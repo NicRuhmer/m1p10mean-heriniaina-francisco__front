@@ -49,7 +49,7 @@
                             <div class="px-1 w-full">
                                 <label class="block uppercase text-gray-700
                                     text-xs font-bold mb-2"
-                                    for="grid-password">Description du réparation</label>
+                                    for="grid-password">Description du problème</label>
                                 <textarea class="border-0 px-3 py-3
                                     placeholder-gray-400 text-gray-700 bg-white
                                     rounded text-sm shadow focus:outline-none
@@ -151,6 +151,15 @@
                                         text-left">
                                         Description
                                     </th>
+                                    <th
+                                        class="px-6 bg-blueGray-50
+                                        text-blueGray-500 align-middle border
+                                        border-solid border-blueGray-100 py-3
+                                        text-xs uppercase border-l-0 border-r-0
+                                        whitespace-nowrap font-semibold
+                                        text-center">
+                                        Action
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -159,7 +168,7 @@
                                         class="border-t-0 px-6 align-middle
                                         border-l-0 border-r-0 text-xs
                                         whitespace-nowrap p-4">
-                                        <p> {{liste.data.createdAt}}</p>
+                                        <p> {{ formatDate(liste.data.createdAt) }}</p>
                                     </td>
                                     <td
                                         class="border-t-0 px-6 align-middle
@@ -186,83 +195,13 @@
                                     whitespace-nowrap p-4">
                                     <p> {{liste.data.description}}</p>
                                 </td>
+                                <td
+                                        class="border-t-0 text-center px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                        <i class="fas fa-trash text-red-600" role="button" (click)="delete(liste.data._id)"></i>
+                                        
+                                    </td>
                                 </tr>
 
-                                <!--<tr>
-                                    <th
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Toyota
-                                    </th>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        21/12/2022
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                                        En attente de d'acceptation
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Renault
-                                    </th>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        23/04/2022
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <i class="fas fa-arrow-down text-orange-500 mr-4"></i>
-                                        En attente de d'acceptation
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Renault
-                                    </th>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        23/04/2022
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <i class="fas fa-arrow-down text-orange-500 mr-4"></i>
-                                        En attente de d'acceptation
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Renault
-                                    </th>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        23/04/2022
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <i class="fas fa-arrow-down text-orange-500 mr-4"></i>
-                                        En attente de d'acceptation
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">
-                                        Renault
-                                    </th>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        23/04/2022
-                                    </td>
-                                    <td
-                                        class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                        <i class="fas fa-arrow-down text-orange-500 mr-4"></i>
-                                        En attente de d'acceptation
-                                    </td>
-                                </tr>-->
                             </tbody>
                         </table>
                     </div>

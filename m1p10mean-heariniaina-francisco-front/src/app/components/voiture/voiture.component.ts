@@ -13,6 +13,10 @@ export class VoitureComponent {
   matricule: any = "";
   carburant: any = "";
   model: any = "";
+  nameV: any = "";
+  matriculeV: any = "";
+  carburantV: any = "";
+  modelV: any = "";
   listeVoitures: any;
 
   error: any;
@@ -73,11 +77,37 @@ export class VoitureComponent {
     }
   }
 
+  modifier() {
+    const form = {
+      name: this.nameV,
+      matricule: this.matriculeV,
+      carburant: this.carburantV,
+      model: this.modelV
+    };
+
+    if (this.name != "" || this.matricule != "" || this.carburant != "" || this.model != "") {
+      this.http.post("http://localhost:3000/api/create/" + localStorage.getItem("id") + "/voiture", form, this.httpOptions).subscribe((result: any) => {
+      if (result.status == 200) {
+          this.listeVoitures = result.data;
+        } else {
+          this.error = result.message;
+        }
+      });
+    } else {
+      this.error = "Champ invalide !";
+    }
+  }
+
 
   deconnecte() {
     localStorage.removeItem("id");
     localStorage.removeItem("name");
     this.router.navigateByUrl('/login');
+  }
+
+  showModal = false;
+  toggleModal(){
+    this.showModal = !this.showModal;
   }
 
 }

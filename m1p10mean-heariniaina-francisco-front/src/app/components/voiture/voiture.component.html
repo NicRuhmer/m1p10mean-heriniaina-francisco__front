@@ -1,0 +1,226 @@
+<app-sidebar></app-sidebar>
+
+<div class="relative md:ml-64 bg-blueGray-100">
+    <!-- <app-navbar></app-navbar> -->
+    <!-- Header -->
+    <div class="px-4 md:px-10 mx-auto w-full -m-24 mt-10">
+        <div class="flex flex-wrap">
+        </div>
+        <div class="container mx-auto px-4 h-full">
+            <div class="flex content-center items-center justify-center h-full">
+                <div class="w-full lg:w-12/12 px-4">
+                    <div
+                        class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-100 border-0">
+                        <div class="rounded-t mb-0 px-6 py-6">
+                            <div class="text-center mb-3">
+                                <h6 class="text-gray-600 text-sm font-bold">
+                                    Mes voitures
+                                </h6>
+                            </div>
+
+                        </div>
+                        <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+
+                            <div class="flex flex-row justify-between relative w-full mb-3">
+                                <div class="px-1 w-6/12">
+                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-password">Marque<span>*</span></label>
+                                    <input type="text" [(ngModel)]="name" required
+                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                        placeholder="Marque de la voiture" style="transition: all 0.15s ease 0s;" />
+                                </div>
+                                <div class="px-1 w-6/12">
+                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-password">Modèle<span>*</span></label>
+                                    <input type="text" [(ngModel)]="model" required
+                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                        placeholder="Modèle de la voiture" style="transition: all 0.15s ease 0s;" />
+                                </div>
+                            </div>
+                            <div class="flex flex-row justify-between relative w-full mb-3">
+
+                                <div class="px-1 w-6/12">
+                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-password">Immatriculation<span>*</span></label>
+                                    <input type="text" [(ngModel)]="matricule" required
+                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                        placeholder="Immatriculation" style="transition: all 0.15s ease 0s;" />
+                                </div>
+                                <div class="px-1 w-6/12">
+                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-password">Carburant<span>*</span></label>
+                                    <input type="text" [(ngModel)]="carburant" required
+                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                        placeholder="Carburant" style="transition: all 0.15s ease 0s;" />
+                                </div>
+                            </div>
+                            <div class="text-center mt-6">
+                                <button (click)="register()"
+                                    class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-6/12"
+                                    type="button" style="transition: all 0.15s ease 0s;">
+                                    Déposer votre voiture
+                                </button>
+                            </div>
+                            <p style="color: red;">{{error}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap mt-4">
+            <div class="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
+                <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+                    <div class="rounded-t mb-0 px-4 py-3 border-0">
+                        <div class="flex flex-wrap items-center">
+                            <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+                                <h3 class="font-semibold text-base text-blueGray-700">
+                                    Liste des voitures
+                                </h3>
+                            </div>
+                            <!-- <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                                <button
+                                    class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
+                                    type="button" style="transition:all .15s ease">
+                                    Voir tout
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="block w-full overflow-x-auto">
+                        <!-- Projects table -->
+                        <table class="items-center w-full bg-transparent border-collapse">
+                            <thead>
+                                <tr>
+                                    <th
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Date
+                                    </th>
+                                    <th
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Description
+                                    </th>
+                                    <th
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Matricule
+                                    </th>
+                                    <th
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Carburant
+                                    </th>
+                                    <!-- <th
+                                        class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                                        Model
+                                    </th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let liste of listeVoitures" class="clic">
+                                    <td class="border-t-0 px-6 align-middle
+                                    border-l-0 border-r-0 text-xs
+                                    whitespace-nowrap p-4">
+                                        <p> {{liste.createdAt}}</p>
+                                    </td>
+                                    <td class="border-t-0 px-6 align-middle
+                                        border-l-0 border-r-0 text-xs
+                                        whitespace-nowrap p-4">
+                                        <p> {{liste.description}}</p>
+                                    </td>
+                                    <td class="border-t-0 px-6 align-middle
+                                        border-l-0 border-r-0 text-xs
+                                        whitespace-nowrap p-4">
+                                        <p> {{liste.matricule}}</p>
+                                    </td>
+                                    <td class="border-t-0 px-6 align-middle
+                                    border-l-0 border-r-0 text-xs
+                                    whitespace-nowrap p-4">
+                                        <p> {{liste.carburant}}</p>
+                                    </td>
+                                    <!-- <td class="border-t-0 px-6 align-middle
+                                    border-l-0 border-r-0 text-xs
+                                    whitespace-nowrap p-4">
+                                    <i class="fas fa-edit text-gray-600" role="button" (click)="toggleModal()"></i>
+                                    <div *ngIf="showModal"
+                                        class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+                                        <div class="relative w-auto my-6 mx-auto max-w-3xl">
+                                            
+                                            <div
+                                                class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                                
+                                                <div
+                                                    class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                                                    <h3 class="text-3xl font-semibold">
+                                                        Modifications des voitures
+                                                    </h3>
+                                                </div>
+                                                <div class="relative flex-auto">
+                                                    <p class="my-4 text-slate-500 text-lg leading-relaxed">
+                                                        <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                                                            <div class="flex flex-row justify-between relative w-full mb-3">
+                                                                <div class="px-1 w-6/12">
+                                                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                                                        for="grid-password">Marque<span>*</span></label>
+                                                                    <input type="text" [(ngModel)]="nameV" required
+                                                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                                        placeholder="Marque de la voiture" style="transition: all 0.15s ease 0s;" />
+                                                                </div>
+                                                                <div class="px-1 w-6/12">
+                                                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                                                        for="grid-password">Modèle<span>*</span></label>
+                                                                    <input type="text" [(ngModel)]="modelV" required
+                                                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                                        placeholder="Modèle de la voiture" style="transition: all 0.15s ease 0s;" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="flex flex-row justify-between relative w-full mb-3">
+                                                                <div class="px-1 w-6/12">
+                                                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                                                        for="grid-password">Immatriculation<span>*</span></label>
+                                                                    <input type="text" [(ngModel)]="matriculeV" required
+                                                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                                        placeholder="Immatriculation" style="transition: all 0.15s ease 0s;" />
+                                                                </div>
+                                                                <div class="px-1 w-6/12">
+                                                                    <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                                                        for="grid-password">Carburant<span>*</span></label>
+                                                                    <input type="text" [(ngModel)]="carburantV" required value=""
+                                                                        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                                                        placeholder="Carburant" style="transition: all 0.15s ease 0s;" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="text-center mt-6">
+                                                                <button (click)="modifier()"
+                                                                    class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-6/12"
+                                                                    type="button" style="transition: all 0.15s ease 0s;">
+                                                                    Modifier
+                                                                </button>
+                                                            </div>
+                                                            <p style="color: red;">{{error}}</p>
+                                                        </div>
+                                                </div>
+                                                <div
+                                                    class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                                                    <button
+                                                        class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                        type="button" (click)="toggleModal()">
+                                                        Fermer
+                                                    </button>
+                                                    <button
+                                                        class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                                        type="button" (click)="toggleModal()">
+                                                        Sauvergarder
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                                    </td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

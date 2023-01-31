@@ -1,0 +1,184 @@
+<section class="py-20 bg-black">
+    <div class="max-w-5xl mx-auto py-16 bg-white">
+        <article class="overflow-hidden">
+            <div class="bg-[white] rounded-b-md">
+                <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
+                    <button
+                        class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
+                        type="button" style="transition:all .15s ease">
+                        <a href="/dashboard">Retour</a>
+                    </button>
+                </div>
+                <div class="p-9">
+                    <div class="space-y-6 text-slate-700">
+                        <img class="object-cover h-12" src="../../../assets/img/logo.png" alt="logo" />
+
+                        <p class="text-xl font-extrabold tracking-tight uppercase font-body">
+                            IDEAL<span class="text-red-500">AUTO</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="p-9">
+                    <div class="flex w-full">
+                        <div class="grid grid-cols-4 gap-12">
+                            <div class="text-sm font-light text-slate-500">
+                                <p class="text-sm font-normal text-slate-700">
+                                    Garage Détails
+                                </p>
+                                <p>{{ data.detail.employe.name }}</p>
+                                <p>{{ data.detail.employe.contact }}</p>
+                                <p>{{ data.detail.employe.adresse }}</p>
+                                <p>{{ data.detail.employe.email }}</p>
+                                <p class="text-sm mt-5 font-normal text-slate-700">
+                                    {{ data.detail.voiture.description }}
+                                </p>
+                            </div>
+                            <div class="text-sm font-light text-slate-500">
+                                <p class="text-sm font-normal text-slate-700">Facturer à</p>
+                                <p>{{ data.detail.voiture.client.Name }}</p>
+                                <p>{{ data.detail.voiture.client.username }}</p>
+                                <p>{{ data.detail.voiture.client.contact }}</p>
+                                <p>{{ data.detail.voiture.client.adresse }}</p>
+                                <p>{{ data.detail.voiture.client.email }}</p>
+                                <p class="text-sm mt-5 font-normal text-slate-700">
+                                    {{ data.detail.voiture.genre }}
+                                </p>
+                            </div>
+                            <div class="text-sm font-light text-slate-500">
+                                <p class="text-sm font-normal text-slate-700">Numero Facture</p>
+                                <p>{{ data.detail.facture.num_facture }}</p>
+
+                                <p class="mt-2 text-sm font-normal text-slate-700">
+                                    Date d'émission
+                                </p>
+                                <p>{{ formatDate(data.detail.facture.invoice_date) }}</p>
+                                <p class="text-sm mt-8 font-normal text-slate-700">
+                                    {{ data.detail.voiture.matricule }}
+                                </p>
+                            </div>
+                            <div class="text-sm font-light text-slate-500">
+                                <p class="text-sm font-normal text-slate-700">Payement par</p>
+                                <p>{{ data.detail.facture.paiement }}</p>
+
+                                <p class="mt-2 text-sm font-normal text-slate-700">Date d'échéance</p>
+                                <p>{{ formatDate(data.detail.facture.due_date) }}</p>
+                                <p class="text-sm mt-8 font-normal text-slate-700">
+                                    {{ data.detail.voiture.carburant }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-9">
+                    <div class="flex flex-col mx-0 mt-8">
+                        <table class="min-w-full divide-y divide-slate-500">
+                            <thead>
+                                <tr>
+                                    <th scope="col"
+                                        class="py-3.5 pl-4 pr-3 text-left text-sm font-normal text-slate-700 sm:pl-6 md:pl-0">
+                                        Description
+                                    </th>
+                                    <th scope="col"
+                                        class="hidden py-3.5 px-3 text-right text-sm font-normal text-slate-700 sm:table-cell">
+                                        Quantité
+                                    </th>
+                                    <th scope="col"
+                                        class="hidden py-3.5 px-3 text-right text-sm font-normal text-slate-700 sm:table-cell">
+                                        Prix Unitaire
+                                    </th>
+                                    <th scope="col"
+                                        class="py-3.5 pl-3 pr-4 text-right text-sm font-normal text-slate-700 sm:pr-6 md:pr-0">
+                                        TVA
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-slate-200" *ngFor="let item of data.diagnostiques">
+                                    <td class="py-4 pl-4 pr-3 text-sm sm:pl-6 md:pl-0">
+                                        <div class="font-medium text-slate-700">{{ item.title }}</div>
+                                    </td>
+                                    <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
+                                        {{ item.qte }}
+                                    </td>
+                                    <td class="hidden px-3 py-4 text-sm text-right text-slate-500 sm:table-cell">
+                                        {{ item.pu }} / {{ item.unite }}
+                                    </td>
+                                    <td class="py-4 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
+                                        {{ item.tva }}
+                                    </td>
+                                </tr>
+
+                                <!-- Here you can write more products/tasks that you want to charge for-->
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="row" colspan="3"
+                                        class="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0">
+                                        Total RP
+                                    </th>
+                                    <th scope="row"
+                                        class="pt-6 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden">
+                                        Total RP
+                                    </th>
+                                    <td class="pt-6 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
+                                        {{ data.montant.totaleReparation }} Ar
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" colspan="3"
+                                        class="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0">
+                                        Total HT
+                                    </th>
+                                    <th scope="row"
+                                        class="pt-6 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden">
+                                        Total HT
+                                    </th>
+                                    <td class="pt-6 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
+                                        {{ data.montant.totaleHT }} Ar
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" colspan="3"
+                                        class="hidden pt-6 pl-6 pr-3 text-sm font-light text-right text-slate-500 sm:table-cell md:pl-0">
+                                        TVA
+                                    </th>
+                                    <th scope="row"
+                                        class="pt-6 pl-4 pr-3 text-sm font-light text-left text-slate-500 sm:hidden">
+                                        TVA
+                                    </th>
+                                    <td class="pt-6 pl-3 pr-4 text-sm text-right text-slate-500 sm:pr-6 md:pr-0">
+                                        {{ data.montant.totaleTVA }} Ar
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" colspan="3"
+                                        class="hidden pt-4 pl-6 pr-3 text-sm font-normal text-right text-slate-700 sm:table-cell md:pl-0">
+                                        Total
+                                    </th>
+                                    <th scope="row"
+                                        class="pt-4 pl-4 pr-3 text-sm font-normal text-left text-slate-700 sm:hidden">
+                                        Total
+                                    </th>
+                                    <td
+                                        class="pt-4 pl-3 pr-4 text-sm font-normal text-right text-slate-700 sm:pr-6 md:pr-0">
+                                        {{ data.montant.totaleTTC }} Ar
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mt-48 p-9">
+                    <div class="border-t pt-9 border-slate-200">
+                        <div class="text-sm font-light text-slate-700">
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
